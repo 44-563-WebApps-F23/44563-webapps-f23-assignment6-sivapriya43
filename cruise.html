@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title> CHECK BOXES </title>
+ </head>
+<body>
+
+<h1>Siva Priya Katta Goes On a Cruise</h1>
+<form>
+    <input type="checkbox" id="shared" name="shared" value="true">
+    <lable for="shared">Shares Cabin</lable><br>
+
+    <input type="checkbox" id="breakF" name="breakF" value="true">
+    <lable for="breakF">Breakfast</lable><br>
+
+    <input type="checkbox" id="PoolP" name="PoolP" value="false">
+    <lable for="PoolP">Pool Pass</lable><br>
+
+    <input type="button" value="Select a cruise" onclick="selectCruise()">
+</form>
+<p id="resultCheck">This text will be replaced </p>
+<script> 
+var  my_cruise={};
+function selectCruise(){
+    my_cruise={};
+  if(document.getElementById("shared").checked) {
+    my_cruise["shared"]=true;
+  }
+  else
+  my_cruise.shared=false;
+
+  if(document.getElementById("breakF").checked) {
+    my_cruise.breakfast=true;
+  }
+  else
+  my_cruise.breakfast=false;
+
+  if(document.getElementById("PoolP").checked) {
+    my_cruise.pool=true;
+  }
+  else
+  my_cruise.pool=false;
+  
+  document.getElementById("resultCheck").innerHTML="{shared: " + my_cruise.shared + "; breakfast: "+my_cruise.breakfast+"; pool: "+my_cruise.pool+";}";
+}
+
+</script>
+
+</body>
+</html>

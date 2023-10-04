@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Shows Tip Amount Using Looping </title>
+    </head>
+    <body>
+        <h2> Siva Priya Katta Shows Tip Amount </h2>
+        <form>
+            <label for="base">Enter base amount</label>
+            <input type="number" id="base" name="base" value=50> <br>
+    
+            <label for="tip">Enter the tip percent</label>
+            <input type="number" id="tip" name="tip" value="15"> <br>
+    
+            <input type="button" onclick="tips()" value="Show tip">
+        </form>
+        <p id="result">This text will be replaced </p>
+        <form>
+            <input onclick="chooseOp()" type="radio" id="add" name="rad" value="sum">
+            <label for="add">sum</label></br>
+    
+            <input onclick="chooseOp()" type="radio" id="diff" name="rad" value="difference">
+            <label for="diff">diff</label></br>
+    
+            <input onclick="chooseOp()" type="radio" id="mult" name="rad" value="product">
+            <label for="mult">mult</label></br>
+        </form>
+        <p id="resultRad">This text will be replaced</p>
+        <script>
+    
+            function tips() {
+                var baseV = parseInt(document.getElementById("base").value);
+                var tipV = parseInt(document.getElementById("tip").value);
+                var myOutput = "";
+                for (var i = 0; i < 5; i++) {
+                    myOutput = myOutput + (tipV + "% is ") + (baseV * (tipV / 100)).toFixed(1) + "; ";
+                    tipV = tipV + 4;
+                }
+                document.getElementById("result").innerHTML = "Tip are: " + (myOutput);
+    
+            }
+    
+            function chooseOp() {
+                var baseV = parseInt(document.getElementById("base").value);
+                var tipV = parseInt(document.getElementById("tip").value);
+                if (document.getElementById("add").checked)
+                    document.getElementById("resultRad").innerHTML = "Sum of " + baseV + " and " + tipV + " is " + (baseV + tipV);
+                else if (document.getElementById("diff").checked)
+                    document.getElementById("resultRad").innerHTML = "difference of " + baseV + " and " + tipV + " is " + (baseV - tipV);
+                else
+                    document.getElementById("resultRad").innerHTML = "Product of " + baseV + " and " + tipV + " is " + (baseV * tipV);
+            }
+        </script>
+    
+    </body>
+</html>
