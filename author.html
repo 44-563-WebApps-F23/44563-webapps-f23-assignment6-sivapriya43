@@ -31,9 +31,9 @@ function checkAuthor(){
     }else{
         oops++;
         if(oops == 7){  const checkButton = document.getElementById("btn");
-            checkButton.disabled = true;
-            alert("Sorry, ran out of guesses")
-            document.getElementById("display").onclick=incorrectguesses();
+        checkButton.disabled = true;
+        alert("Sorry, ran out of guesses")
+        document.getElementById("display").onclick=incorrectguesses();
         }
         alert("Sorry");
     }
