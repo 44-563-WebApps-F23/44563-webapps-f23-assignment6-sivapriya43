@@ -7,44 +7,54 @@
 
 <h1>Siva Priya Katta Goes On a Cruise</h1>
 <form>
-    <input type="checkbox" id="shared" name="shared" value="true">
-    <lable for="shared">Shares Cabin</lable><br>
-
-    <input type="checkbox" id="breakF" name="breakF" value="true">
-    <lable for="breakF">Breakfast</lable><br>
-
-    <input type="checkbox" id="PoolP" name="PoolP" value="false">
-    <lable for="PoolP">Pool Pass</lable><br>
-
-    <input type="button" value="Select a cruise" onclick="selectCruise()">
-</form>
-<p id="resultCheck">This text will be replaced </p>
-<script> 
-var  my_cruise={};
-function selectCruise(){
-    my_cruise={};
-  if(document.getElementById("shared").checked) {
-    my_cruise["shared"]=true;
-  }
-  else
-  my_cruise.shared=false;
-
-  if(document.getElementById("breakF").checked) {
-    my_cruise.breakfast=true;
-  }
-  else
-  my_cruise.breakfast=false;
-
-  if(document.getElementById("PoolP").checked) {
-    my_cruise.pool=true;
-  }
-  else
-  my_cruise.pool=false;
+    <input type="checkbox" id="Shares_Cabin" value="True">
+    <label style="color:red" for="Shares Cabin">Shares Cabin</label></br>
   
-  document.getElementById("resultCheck").innerHTML="{shared: " + my_cruise.shared + "; breakfast: "+my_cruise.breakfast+"; pool: "+my_cruise.pool+";}";
-}
+    <input type="checkbox" id="Breakfast" value="True">
+    <label style="color:rgb(227, 14, 14)" for="Breakfast">Breakfast</label></br>
+  
+    <input type="checkbox" id="Pool_Pass" value="False">
+    <label style="color:rgb(227, 14, 14)" for="Pool Pass">Pool Pass    </label></br>
 
+    <input type="button" onclick="selectCruise()" value="Select a cruise">
+  </form>   
+
+<p id="result">result</p>
+
+<script>
+    var my_cruise = {};
+    function selectCruise() {
+        my_cruise = {};
+        var shares_cabin = document.getElementById("Shares_Cabin");
+        var break_fast = document.getElementById("Breakfast");
+        var pool_pass = document.getElementById("Pool_Pass");
+        my_cruise.shared = shares_cabin.checked;
+        my_cruise.breakfast = break_fast.checked;
+        my_cruise.pool = pool_pass.checked;
+        document.getElementById("result").innerHTML = JSON.stringify(my_cruise);
+    }
 </script>
+
+<form>
+    <label for="days">Enter the number of days</label>
+    <input type="text" id="days" name="days" value="days"><br>
+
+    <label for="price">Enter price</label>
+    <input type="text" id="price" name="price"><br>
+
+    <input type="button" class="btn btn-primary" value="Update the cruise" onclick="updateCruise()">
+</form>
+
+<script>
+    function updateCruise(){
+        days=document.getElementById("days").value
+        price=document.getElementById("price").value
+        my_cruise["days"]=days;
+        my_cruise["price"]=price;
+        document.getElementById("result").innerHTML=JSON.stringify(my_cruise)
+    }
+</script>
+
 
 </body>
 </html>
